@@ -7,9 +7,17 @@
   "author": "Matias Olivera <moliverafreire@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "babel src --out-dir lib",
-    "lint": "eslint src",
-    "test": "jest"
+    "build": "yarn clean:build && babel src --out-dir lib",
+    "clean": "yarn clean:build & yarn clean:coverage & yarn clean:modules",
+    "clean:build": "rimraf lib",
+    "clean:coverage": "rimraf coverage",
+    "clean:modules": "rimraf node_modules",
+    "lint": "eslint --cache src",
+    "lint:fix": "yarn lint --fix",
+    "pretest": "yarn lint",
+    "test": "jest",
+    "test:coverage": "yarn test --coverage",
+    "test:watch": "yarn test --watch"
   },
   "dependencies": {
     "lodash.throttle": "^4.1.1"
@@ -42,7 +50,8 @@
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
     "react-testing-library": "^5.2.3",
-    "regenerator-runtime": "^0.12.1"
+    "regenerator-runtime": "^0.12.1",
+    "rimraf": "^2.6.2"
   },
   "jest": {
     "clearMocks": true,
