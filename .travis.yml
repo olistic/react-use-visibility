@@ -1,0 +1,16 @@
+sudo: false
+
+language: node_js
+node_js:
+  - stable
+
+cache: yarn
+
+script: yarn test:coverage
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+branches:
+  only:
+    - master
