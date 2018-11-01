@@ -1,6 +1,6 @@
 {
   "name": "react-use-visibility",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "React hook for tracking components visibility",
   "keywords": [
     "react",
