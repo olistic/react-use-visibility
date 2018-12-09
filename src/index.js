@@ -5,7 +5,7 @@ import checkVisibility from './checkVisibility';
 
 const throttleInterval = 150;
 
-function useVisibility(el, { partial = false } = {}) {
+const useVisibility = (el, { partial = false, scrollableEl = window } = {}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(
@@ -15,20 +15,20 @@ function useVisibility(el, { partial = false } = {}) {
         throttleInterval,
       );
 
-      window.addEventListener('scroll', handleScrollOrResize);
+      scrollableEl.addEventListener('scroll', handleScrollOrResize);
       window.addEventListener('resize', handleScrollOrResize);
 
       setIsVisible(checkVisibility(el, partial));
 
       return () => {
-        window.removeEventListener('scroll', handleScrollOrResize);
+        scrollableEl.removeEventListener('scroll', handleScrollOrResize);
         window.removeEventListener('resize', handleScrollOrResize);
       };
     },
-    [el],
+    [el, partial, scrollableEl],
   );
 
   return isVisible;
-}
+};
 
 export default useVisibility;

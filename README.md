@@ -65,12 +65,8 @@ with the following properties:
 
 - `partial` (_boolean_): Whether to consider the element visible when only a
   part of it is on the screen. Defaults to `false`.
-
-## Next Steps
-
-- [ ] Allow to pass a custom element to add the scroll event listener to instead
-      of the `window` object. Useful when there's a parent element with
-      `overflow: auto` triggering the scroll event.
+- `scrollableEl` (_Element_): The parent element triggering the scroll event.
+  Defaults to `window`.
 
 [build-badge]:
   https://img.shields.io/travis/olistic/react-use-visibility/master.svg
