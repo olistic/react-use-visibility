@@ -8,6 +8,12 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [0.3.0] - 2019-10-02
+
+### Fixed
+
+- Peer dependencies have correct `react` and `react-dom` versions.
+
 ## [0.2.0] - 2018-12-09
 
 ### Added
