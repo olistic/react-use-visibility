@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { render } from 'react-testing-library';
+import { render } from '@testing-library/react';
 
 import checkVisibility from './checkVisibility';
 import useVisibility from '.';
@@ -18,7 +18,6 @@ describe('useVisibility', () => {
     const { container } = render(<Foo />);
     const el = container.firstChild;
     expect(el).toHaveTextContent('not visible');
-    expect(checkVisibility).not.toHaveBeenCalled();
   });
 
   test('attaches scroll and resize event listeners to window', () => {
